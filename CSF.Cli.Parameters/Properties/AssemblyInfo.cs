@@ -29,9 +29,8 @@ using System.Runtime.CompilerServices;
 
 [assembly: CLSCompliant(true)]
 [assembly: AssemblyTitle("CSF.Cli.Parameters")]
-[assembly: AssemblyDescription("A command-line parameter parser")]
+[assembly: AssemblyDescription("A parser for command-line parameters")]
 [assembly: AssemblyCompany("CSF Software Limited")]
-[assembly: AssemblyProduct("CSF Software Utilities")]
 [assembly: AssemblyCopyright("CSF Software Limited")]
 
 #if DEBUG
@@ -40,5 +39,5 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("Release")]
 #endif
 
-[assembly: AssemblyVersion("5.0.0")]
+[assembly: AssemblyVersion("1.0.0")]
 

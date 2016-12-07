@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>CSF.Cli.Parameters</id>
+    <version>1.0.0</version>
+    <title>Command-line parameter reader</title>
+    <authors>CSF Software Ltd</authors>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>http://csf-dev.github.io/CSF.Cli.Parameters/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A reader for command-line parameters, supporting both long and short options, boolean flags, string values and positional parameters.  Also enables deserializing parsed parameters to a POCO via a mapping-based mechanism.</description>
+    <copyright>Copyright 2016</copyright>
+    <dependencies>
+      <dependency id="CSF.Utils" version="[6.0.0,7.0.0)" />
+      <dependency id="CSF.Reflection" version="[1.0.0,2.0.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/CSF.Cli.Parameters.dll" target="lib/net45" />
+  </files>
+</package>

@@ -196,7 +196,7 @@ namespace CSF.Cli.Parameters
     #region constructor
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CSF.Cli.ParameterParserBuilder"/> class.
+    /// Initializes a new instance of the <see cref="ParameterParserBuilder"/> class.
     /// </summary>
     public ParameterParserBuilder()
     {

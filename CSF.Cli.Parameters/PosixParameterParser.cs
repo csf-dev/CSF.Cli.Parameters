@@ -199,7 +199,7 @@ namespace CSF.Cli.Parameters
     #region constructor
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CSF.Cli.PosixParameterParser"/> class.
+    /// Initializes a new instance of the <see cref="PosixParameterParser"/> class.
     /// </summary>
     protected PosixParameterParser()
     {
@@ -207,7 +207,7 @@ namespace CSF.Cli.Parameters
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CSF.Cli.PosixParameterParser"/> class.
+    /// Initializes a new instance of the <see cref="PosixParameterParser"/> class.
     /// </summary>
     /// <param name="mappings">The parameter mappings.</param>
     public PosixParameterParser(IDictionary<object,ParameterMapping> mappings)

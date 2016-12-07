@@ -93,7 +93,7 @@ namespace CSF.Cli.Parameters
     #region constructor
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CSF.Cli.ParameterMapping"/> class.
+    /// Initializes a new instance of the <see cref="ParameterMapping"/> class.
     /// </summary>
     /// <param name="identifier">An object by which the parameter is identified.</param>
     /// <param name="behaviour">The parameter behaviour.</param>

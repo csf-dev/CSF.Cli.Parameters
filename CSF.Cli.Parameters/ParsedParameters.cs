@@ -89,7 +89,7 @@ namespace CSF.Cli.Parameters
     #region constructors
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="CSF.Cli.ParsedParameters"/> class.
+    /// Initializes a new instance of the <see cref="ParsedParameters"/> class.
     /// </summary>
     /// <param name="flagParameters">Flag parameters.</param>
     /// <param name="valueParameters">Value parameters.</param>

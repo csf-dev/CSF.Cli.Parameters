@@ -1,24 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{7B12E9AF-526D-4F1F-93E4-B1AB5AA9AA89}"
-	ProjectSection(SolutionItems) = preProject
-		Common\CommonAssemblyInfo.cs = Common\CommonAssemblyInfo.cs
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "utils", "utils", "{AD355647-E323-4982-9E58-FD308EBFA0BB}"
-	ProjectSection(SolutionItems) = preProject
-		utils\build = utils\build
-		utils\bump-versions = utils\bump-versions
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Cli.Parameters", "CSF.Cli.Parameters\CSF.Cli.Parameters.csproj", "{295C293C-60FB-43F3-B728-C2BA5B7516BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.CSF.Cli.Parameters", "Test.CSF.Cli.Parameters\Test.CSF.Cli.Parameters.csproj", "{92376DC0-7226-4470-89AA-E6CB1942C8CA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Reflection", "CSF.Reflection\CSF.Reflection\CSF.Reflection.csproj", "{275413F6-0651-4AD4-A426-07EDA165C07E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF", "CSF.Core\CSF\CSF.csproj", "{E563D7BC-1AB1-4AFB-8533-51315437C6E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{275413F6-0651-4AD4-A426-07EDA165C07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{275413F6-0651-4AD4-A426-07EDA165C07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{275413F6-0651-4AD4-A426-07EDA165C07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{275413F6-0651-4AD4-A426-07EDA165C07E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{295C293C-60FB-43F3-B728-C2BA5B7516BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{295C293C-60FB-43F3-B728-C2BA5B7516BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{295C293C-60FB-43F3-B728-C2BA5B7516BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,12 +19,6 @@ Global
 		{92376DC0-7226-4470-89AA-E6CB1942C8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92376DC0-7226-4470-89AA-E6CB1942C8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92376DC0-7226-4470-89AA-E6CB1942C8CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E563D7BC-1AB1-4AFB-8533-51315437C6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E563D7BC-1AB1-4AFB-8533-51315437C6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E563D7BC-1AB1-4AFB-8533-51315437C6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E563D7BC-1AB1-4AFB-8533-51315437C6E6}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
@@ -185,6 +160,6 @@ Global
 		$25.NamingStyle = PascalCase
 		$25.IncludeInstanceMembers = True
 		$25.IncludeStaticEntities = True
-		version = 4.1.1
+		version = 1.0.0
 	EndGlobalSection
 EndGlobal

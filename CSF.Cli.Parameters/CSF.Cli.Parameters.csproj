@@ -70,5 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="CSF.Cli.Parameters.nuspec" />
   </ItemGroup>
 </Project>

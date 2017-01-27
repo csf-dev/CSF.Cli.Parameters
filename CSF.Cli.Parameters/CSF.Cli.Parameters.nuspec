@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>CSF.Cli.Parameters</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>Command-line parameter reader</title>
     <authors>CSF Software Ltd</authors>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>

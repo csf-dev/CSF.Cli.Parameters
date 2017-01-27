@@ -10,7 +10,7 @@
     <RootNamespace>CSF.Cli.Parameters</RootNamespace>
     <AssemblyName>CSF.Cli.Parameters</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <ReleaseVersion>1.0.0</ReleaseVersion>
+    <ReleaseVersion>1.0.1</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,5 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="CSF.Cli.Parameters.nuspec" />
   </ItemGroup>
 </Project>

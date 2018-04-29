@@ -37,7 +37,8 @@
       <Package>nunit</Package>
     </Reference>
     <Reference Include="CSF.Reflection">
-      <HintPath>..\packages\CSF.Reflection.1.0.2\lib\net45\CSF.Reflection.dll</HintPath>
+      <HintPath>..\packages\CSF.Reflection.1.0.3\lib\net45\CSF.Reflection.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

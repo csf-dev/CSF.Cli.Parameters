@@ -11,8 +11,8 @@
     <description>A reader for command-line parameters, supporting both long and short options, boolean flags, string values and positional parameters.  Also enables deserializing parsed parameters to a POCO via a mapping-based mechanism.</description>
     <copyright>Copyright 2016</copyright>
     <dependencies>
-      <dependency id="CSF.Utils" version="[6.1.0,7.0.0)" />
-      <dependency id="CSF.Reflection" version="[1.0.2,2.0.0)" />
+      <dependency id="CSF.Utils" version="[6.1.1,7.0.0)" />
+      <dependency id="CSF.Reflection" version="[1.0.3,2.0.0)" />
     </dependencies>
   </metadata>
   <files>

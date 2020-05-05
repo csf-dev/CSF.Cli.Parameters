@@ -7,5 +7,5 @@ TestResult.formatted.xml
 *.userprefs
 *.orig
 *.directory
-packages/*/*
+packages/
 .vs/

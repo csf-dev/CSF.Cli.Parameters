@@ -29,97 +29,95 @@ using System.Linq;
 
 namespace CSF.Cli.Parameters
 {
-  /// <summary>
-  /// Represents the mapping of a single parameter to be used in an <see cref="T:IParameterParser{T}"/>
-  /// </summary>
-  public class ParameterMapping
-  {
-    #region fields
-
-    private object _identifier;
-    private ISet<string> _shortNames, _longNames;
-    private ParameterBehaviour _behaviour;
-
-    #endregion
-
-    #region properties
-
     /// <summary>
-    /// Gets an object by which the parameter is identified.
+    /// Represents the mapping of a single parameter to be used in an <see cref="T:IParameterParser{T}"/>
     /// </summary>
-    /// <value>The identifier.</value>
-    public object Identifier
+    public class ParameterMapping
     {
-      get {
-        return _identifier;
-      }
+        #region fields
+
+        private object _identifier;
+        private ISet<string> _shortNames, _longNames;
+        private ParameterBehaviour _behaviour;
+
+        #endregion
+
+        #region properties
+
+        /// <summary>
+        /// Gets an object by which the parameter is identified.
+        /// </summary>
+        /// <value>The identifier.</value>
+        public object Identifier
+        {
+            get
+            {
+                return _identifier;
+            }
+        }
+
+        /// <summary>
+        /// Gets a collection of the short parameter names.
+        /// </summary>
+        /// <value>The short names.</value>
+        public IEnumerable<string> ShortNames
+        {
+            get
+            {
+                return _shortNames;
+            }
+        }
+
+        /// <summary>
+        /// Gets a collection of the long parameter names.
+        /// </summary>
+        /// <value>The long names.</value>
+        public IEnumerable<string> LongNames
+        {
+            get
+            {
+                return _longNames;
+            }
+        }
+
+        /// <summary>
+        /// Gets the parameter behaviour.
+        /// </summary>
+        /// <value>The behaviour.</value>
+        public ParameterBehaviour Behaviour
+        {
+            get
+            {
+                return _behaviour;
+            }
+        }
+
+        #endregion
+
+        #region constructor
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ParameterMapping"/> class.
+        /// </summary>
+        /// <param name="identifier">An object by which the parameter is identified.</param>
+        /// <param name="behaviour">The parameter behaviour.</param>
+        /// <param name="shortNames">The paramater short names.</param>
+        /// <param name="longNames">The parameter long names.</param>
+        public ParameterMapping(object identifier,
+                                ParameterBehaviour behaviour,
+                                IEnumerable<string> shortNames = null,
+                                IEnumerable<string> longNames = null)
+        {
+            if (!Enum.IsDefined(typeof(ParameterBehaviour), behaviour))
+                throw new ArgumentException($"The {nameof(ParameterBehaviour)} must be a defined value.", nameof(behaviour));
+
+            _identifier = identifier ?? throw new ArgumentNullException(nameof(identifier));
+            _behaviour = behaviour;
+            _shortNames = new HashSet<string>(shortNames ?? new string[0]);
+            _longNames = new HashSet<string>(longNames ?? new string[0]);
+        }
+
+        #endregion
     }
-
-    /// <summary>
-    /// Gets a collection of the short parameter names.
-    /// </summary>
-    /// <value>The short names.</value>
-    public IEnumerable<string> ShortNames
-    {
-      get {
-        return _shortNames;
-      }
-    }
-
-    /// <summary>
-    /// Gets a collection of the long parameter names.
-    /// </summary>
-    /// <value>The long names.</value>
-    public IEnumerable<string> LongNames
-    {
-      get {
-        return _longNames;
-      }
-    }
-
-    /// <summary>
-    /// Gets the parameter behaviour.
-    /// </summary>
-    /// <value>The behaviour.</value>
-    public ParameterBehaviour Behaviour
-    {
-      get {
-        return _behaviour;
-      }
-    }
-
-    #endregion
-
-    #region constructor
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ParameterMapping"/> class.
-    /// </summary>
-    /// <param name="identifier">An object by which the parameter is identified.</param>
-    /// <param name="behaviour">The parameter behaviour.</param>
-    /// <param name="shortNames">The paramater short names.</param>
-    /// <param name="longNames">The parameter long names.</param>
-    public ParameterMapping(object identifier,
-                            ParameterBehaviour behaviour,
-                            IEnumerable<string> shortNames = null,
-                            IEnumerable<string> longNames = null)
-    {
-      if(identifier == null)
-      {
-        throw new ArgumentNullException(nameof(identifier));
-      }
-      if(!behaviour.IsDefinedValue())
-      {
-        throw new ArgumentException("Behaviour must be a defined enumeration constant.", nameof(behaviour));
-      }
-
-      _identifier = identifier;
-      _behaviour = behaviour;
-      _shortNames = new HashSet<string>(shortNames?? new string[0]);
-      _longNames = new HashSet<string>(longNames?? new string[0]);
-    }
-
-    #endregion
-  }
 }
 

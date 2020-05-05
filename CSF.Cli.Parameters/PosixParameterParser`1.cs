@@ -30,89 +30,89 @@ using System.Linq;
 
 namespace CSF.Cli.Parameters
 {
-  /// <summary>
-  /// Generic implementation of <see cref="PosixParameterParser"/>, which parses parameters into object instances.
-  /// </summary>
-  public class PosixParameterParser<TParsed> : PosixParameterParser, IParameterParser<TParsed>
-    where TParsed : class,new()
-  {
-    #region fields
-
-    private Dictionary<PropertyInfo,ParameterMapping> _mappings;
-    private PropertyInfo _remainingArguments;
-
-    #endregion
-
-    #region methods
-
     /// <summary>
-    /// Gets a read-only collection of the parameters registered for the current instance.
+    /// Generic implementation of <see cref="PosixParameterParser"/>, which parses parameters into object instances.
     /// </summary>
-    /// <returns>A read-only collection of the registered parameters.</returns>
-    public override ParameterMapping[] GetRegisteredParameters()
+    public class PosixParameterParser<TParsed> : PosixParameterParser, IParameterParser<TParsed>
+      where TParsed : class, new()
     {
-      return _mappings.Values.ToArray();
-    }
+        #region fields
 
-    /// <summary>
-    /// Parses the given command line arguments into an instance of <typeparamref name="TParsed" />.
-    /// </summary>
-    /// <param name="commandlineArguments">The command line arguments.</param>
-    public new TParsed Parse(IList<string> commandlineArguments)
-    {
-      var parsedParams = base.Parse(commandlineArguments);
-      var allMappings = GetRegisteredParameters();
-      TParsed output = new TParsed();
+        private Dictionary<PropertyInfo, ParameterMapping> _mappings;
+        private PropertyInfo _remainingArguments;
 
-      foreach(var mapping in allMappings)
-      {
-        object identifier = mapping.Identifier;
+        #endregion
 
-        if(parsedParams.HasParameter(identifier))
+        #region methods
+
+        /// <summary>
+        /// Gets a read-only collection of the parameters registered for the current instance.
+        /// </summary>
+        /// <returns>A read-only collection of the registered parameters.</returns>
+        public override ParameterMapping[] GetRegisteredParameters()
         {
-          PropertyInfo property = (PropertyInfo) identifier;
-
-          if(mapping.Behaviour == ParameterBehaviour.Switch)
-          {
-            property.SetValue(output, true);
-          }
-          else
-          {
-            property.SetValue(output, parsedParams.GetParameterValue(identifier));
-          }
+            return _mappings.Values.ToArray();
         }
-      }
 
-      if(_remainingArguments != null)
-      {
-        _remainingArguments.SetValue(output, (IList<string>) parsedParams.GetRemainingArguments());
-      }
+        /// <summary>
+        /// Parses the given command line arguments into an instance of <typeparamref name="TParsed" />.
+        /// </summary>
+        /// <param name="commandlineArguments">The command line arguments.</param>
+        public new TParsed Parse(IList<string> commandlineArguments)
+        {
+            var parsedParams = base.Parse(commandlineArguments);
+            var allMappings = GetRegisteredParameters();
+            TParsed output = new TParsed();
 
-      return output;
+            foreach (var mapping in allMappings)
+            {
+                object identifier = mapping.Identifier;
+
+                if (parsedParams.HasParameter(identifier))
+                {
+                    PropertyInfo property = (PropertyInfo)identifier;
+
+                    if (mapping.Behaviour == ParameterBehaviour.Switch)
+                    {
+                        property.SetValue(output, true);
+                    }
+                    else
+                    {
+                        property.SetValue(output, parsedParams.GetParameterValue(identifier));
+                    }
+                }
+            }
+
+            if (_remainingArguments != null)
+            {
+                _remainingArguments.SetValue(output, (IList<string>)parsedParams.GetRemainingArguments());
+            }
+
+            return output;
+        }
+
+        #endregion
+
+        #region constructor
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:CSF.Cli.PosixParameterParser{TParsed}"/> class.
+        /// </summary>
+        /// <param name="mappings">The parameter mappings.</param>
+        /// <param name="remainingArguments">An optional <c>System.Reflection.PropertyInfo</c> indicating where to store the remaining arguments.</param>
+        public PosixParameterParser(Dictionary<PropertyInfo, ParameterMapping> mappings,
+                                    PropertyInfo remainingArguments) : base()
+        {
+            if (mappings == null)
+            {
+                throw new ArgumentNullException("mappings");
+            }
+
+            _mappings = mappings;
+            _remainingArguments = remainingArguments;
+        }
+
+        #endregion
     }
-
-    #endregion
-
-    #region constructor
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:CSF.Cli.PosixParameterParser{TParsed}"/> class.
-    /// </summary>
-    /// <param name="mappings">The parameter mappings.</param>
-    /// <param name="remainingArguments">An optional <c>System.Reflection.PropertyInfo</c> indicating where to store the remaining arguments.</param>
-    public PosixParameterParser(Dictionary<PropertyInfo,ParameterMapping> mappings,
-                                PropertyInfo remainingArguments) : base()
-    {
-      if(mappings == null)
-      {
-        throw new ArgumentNullException("mappings");
-      }
-
-      _mappings = mappings;
-      _remainingArguments = remainingArguments;
-    }
-
-    #endregion
-  }
 }
 

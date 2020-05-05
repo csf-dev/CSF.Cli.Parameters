@@ -21,7 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="NunitXml.TestLogger" Version="2.1.41" />
-    <PackageReference Include="CSF.Reflection" Version="1.0.3" />
+    <PackageReference Include="CSF.Reflector" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSF.Cli.Parameters\CSF.Cli.Parameters.csproj" />

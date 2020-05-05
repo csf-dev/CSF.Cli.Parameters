@@ -29,43 +29,43 @@ using CSF.Cli.Parameters;
 
 namespace Test.CSF.Cli
 {
-  [TestFixture]
-  public class TestPosixParameterParser
-  {
-    #region tests
-
-    [Test]
-    public void TestParse()
+    [TestFixture]
+    public class TestPosixParameterParser
     {
-      // Arrange
-      var parser = new ParameterParserBuilder()
-        .AddFlag("Foo", shortName: "f", longName: "foo")
-        .AddFlag("Bar", longName: "bar")
-        .AddValue("OptionalValue", longName: "optional")
-        .AddValue("MandatoryValue", shortNames: new[] { "m", "A" }, optional: false)
-        .AddValue("SecondMandatory", longNames: new[] { "second", "mandatory" }, optional: false)
-        .Build();
+        #region tests
 
-      var cliParams = "--optional ValueOne -f --mandatory ValueTwo ArgOne ArgTwo".Split(' ');
+        [Test]
+        public void TestParse()
+        {
+            // Arrange
+            var parser = new ParameterParserBuilder()
+              .AddFlag("Foo", shortName: "f", longName: "foo")
+              .AddFlag("Bar", longName: "bar")
+              .AddValue("OptionalValue", longName: "optional")
+              .AddValue("MandatoryValue", shortNames: new[] { "m", "A" }, optional: false)
+              .AddValue("SecondMandatory", longNames: new[] { "second", "mandatory" }, optional: false)
+              .Build();
 
-      // Act
-      var result = parser.Parse(cliParams);
+            var cliParams = "--optional ValueOne -f --mandatory ValueTwo ArgOne ArgTwo".Split(' ');
 
-      // Assert
-      Assert.NotNull(result, "Result nullability");
-      Assert.IsTrue(result.HasParameter("Foo"), "Parameter Foo present");
-      Assert.IsFalse(result.HasParameter("Bar"), "Parameter Bar present");
-      Assert.IsTrue(result.HasParameter("OptionalValue"), "Parameter OptionalValue present");
-      Assert.IsFalse(result.HasParameter("MandatoryValue"), "Parameter MandatoryValue present");
-      Assert.IsTrue(result.HasParameter("SecondMandatory"), "Parameter SecondMandatory present");
+            // Act
+            var result = parser.Parse(cliParams);
 
-      Assert.AreEqual("ValueOne", result.GetParameterValue("OptionalValue"), "OptionalValue value");
-      Assert.AreEqual("ValueTwo", result.GetParameterValue("SecondMandatory"), "SecondMandatory value");
+            // Assert
+            Assert.NotNull(result, "Result nullability");
+            Assert.IsTrue(result.HasParameter("Foo"), "Parameter Foo present");
+            Assert.IsFalse(result.HasParameter("Bar"), "Parameter Bar present");
+            Assert.IsTrue(result.HasParameter("OptionalValue"), "Parameter OptionalValue present");
+            Assert.IsFalse(result.HasParameter("MandatoryValue"), "Parameter MandatoryValue present");
+            Assert.IsTrue(result.HasParameter("SecondMandatory"), "Parameter SecondMandatory present");
 
-      Assert.AreEqual(new[] { "ArgOne", "ArgTwo" }, result.GetRemainingArguments(), "Remaining args");
+            Assert.AreEqual("ValueOne", result.GetParameterValue("OptionalValue"), "OptionalValue value");
+            Assert.AreEqual("ValueTwo", result.GetParameterValue("SecondMandatory"), "SecondMandatory value");
+
+            Assert.AreEqual(new[] { "ArgOne", "ArgTwo" }, result.GetRemainingArguments(), "Remaining args");
+        }
+
+        #endregion
     }
-
-    #endregion
-  }
 }
 

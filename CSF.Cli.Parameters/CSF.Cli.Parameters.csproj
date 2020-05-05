@@ -44,7 +44,6 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CSF.Reflection" Version="1.0.3" />
-    <PackageReference Include="CSF.Utils" Version="6.1.1" />
+    <PackageReference Include="CSF.Reflector" Version="3.0.0" />
   </ItemGroup>
 </Project>

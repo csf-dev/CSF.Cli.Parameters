@@ -29,26 +29,26 @@ using System.Collections.Generic;
 
 namespace CSF.Cli.Parameters
 {
-  /// <summary>
-  /// Base interface for a parameter parser.
-  /// </summary>
-  public interface IParameterParser
-  {
-    #region methods
-
     /// <summary>
-    /// Gets a read-only collection of the parameters registered for the current instance.
+    /// Base interface for a parameter parser.
     /// </summary>
-    /// <returns>A read-only collection of the registered parameters.</returns>
-    ParameterMapping[] GetRegisteredParameters();
+    public interface IParameterParser
+    {
+        #region methods
 
-    /// <summary>
-    /// Parses the given command line arguments into a <see cref="ParsedParameters"/> instance.
-    /// </summary>
-    /// <param name="commandlineArguments">The command line arguments.</param>
-    ParsedParameters Parse(IList<string> commandlineArguments);
+        /// <summary>
+        /// Gets a read-only collection of the parameters registered for the current instance.
+        /// </summary>
+        /// <returns>A read-only collection of the registered parameters.</returns>
+        ParameterMapping[] GetRegisteredParameters();
 
-    #endregion
-  }
+        /// <summary>
+        /// Parses the given command line arguments into a <see cref="ParsedParameters"/> instance.
+        /// </summary>
+        /// <param name="commandlineArguments">The command line arguments.</param>
+        ParsedParameters Parse(IList<string> commandlineArguments);
+
+        #endregion
+    }
 }
 

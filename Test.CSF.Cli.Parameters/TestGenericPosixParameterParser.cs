@@ -30,119 +30,119 @@ using CSF.Cli.Parameters;
 
 namespace Test.CSF.Cli
 {
-  [TestFixture]
-  public class TestGenericPosixParameterParser
-  {
-    #region tests
-
-    [Test]
-    public void TestParse()
+    [TestFixture]
+    public class TestGenericPosixParameterParser
     {
-      // Arrange
-      var parser = new ParameterParserBuilder<SampleClass>()
-        .AddFlag(x => x.Foo, shortName: "f", longName: "foo")
-        .AddFlag(x => x.Bar, longName: "bar")
-        .AddValue(x => x.OptionalValue, longName: "optional")
-        .AddValue(x => x.MandatoryValue, shortNames: new[] { "m", "A" }, optional: false)
-        .AddValue(x => x.SecondMandatory, longNames: new[] { "second", "mandatory" }, optional: false)
-        .RemainingArguments(x => x.RemainingArgs)
-        .Build();
+        #region tests
 
-      var cliParams = "--optional ValueOne -f --mandatory ValueTwo ArgOne ArgTwo".Split(' ');
+        [Test]
+        public void TestParse()
+        {
+            // Arrange
+            var parser = new ParameterParserBuilder<SampleClass>()
+              .AddFlag(x => x.Foo, shortName: "f", longName: "foo")
+              .AddFlag(x => x.Bar, longName: "bar")
+              .AddValue(x => x.OptionalValue, longName: "optional")
+              .AddValue(x => x.MandatoryValue, shortNames: new[] { "m", "A" }, optional: false)
+              .AddValue(x => x.SecondMandatory, longNames: new[] { "second", "mandatory" }, optional: false)
+              .RemainingArguments(x => x.RemainingArgs)
+              .Build();
 
-      // Act
-      var result = parser.Parse(cliParams);
+            var cliParams = "--optional ValueOne -f --mandatory ValueTwo ArgOne ArgTwo".Split(' ');
 
-      // Assert
-      Assert.NotNull(result, "Result nullability");
-      Assert.IsTrue(result.Foo, "Parameter Foo present");
-      Assert.IsFalse(result.Bar, "Parameter Bar present");
-      Assert.NotNull(result.OptionalValue, "Parameter OptionalValue present");
-      Assert.IsNull(result.MandatoryValue, "Parameter MandatoryValue present");
-      Assert.NotNull(result.SecondMandatory, "Parameter SecondMandatory present");
+            // Act
+            var result = parser.Parse(cliParams);
 
-      Assert.AreEqual("ValueOne", result.OptionalValue, "OptionalValue value");
-      Assert.AreEqual("ValueTwo", result.SecondMandatory, "SecondMandatory value");
+            // Assert
+            Assert.NotNull(result, "Result nullability");
+            Assert.IsTrue(result.Foo, "Parameter Foo present");
+            Assert.IsFalse(result.Bar, "Parameter Bar present");
+            Assert.NotNull(result.OptionalValue, "Parameter OptionalValue present");
+            Assert.IsNull(result.MandatoryValue, "Parameter MandatoryValue present");
+            Assert.NotNull(result.SecondMandatory, "Parameter SecondMandatory present");
 
-      Assert.AreEqual(new[] { "ArgOne", "ArgTwo" }, result.RemainingArgs, "Remaining args");
+            Assert.AreEqual("ValueOne", result.OptionalValue, "OptionalValue value");
+            Assert.AreEqual("ValueTwo", result.SecondMandatory, "SecondMandatory value");
+
+            Assert.AreEqual(new[] { "ArgOne", "ArgTwo" }, result.RemainingArgs, "Remaining args");
+        }
+
+        [Test]
+        public void TestParseEmptyOptionalValue()
+        {
+            // Arrange
+            var parser = new ParameterParserBuilder<SampleClass>()
+              .AddFlag(x => x.Foo, shortName: "f", longName: "foo")
+              .AddFlag(x => x.Bar, longName: "bar")
+              .AddValue(x => x.OptionalValue, longName: "optional")
+              .AddValue(x => x.MandatoryValue, shortNames: new[] { "m", "A" }, optional: false)
+              .AddValue(x => x.SecondMandatory, longNames: new[] { "second", "mandatory" }, optional: false)
+              .RemainingArguments(x => x.RemainingArgs)
+              .Build();
+
+            var cliParams = "--optional -f --mandatory ValueTwo ArgOne ArgTwo".Split(' ');
+
+            // Act
+            var result = parser.Parse(cliParams);
+
+            // Assert
+            Assert.NotNull(result, "Result nullability");
+            Assert.IsTrue(result.Foo, "Parameter Foo present");
+            Assert.IsFalse(result.Bar, "Parameter Bar present");
+            Assert.NotNull(result.OptionalValue, "Parameter OptionalValue present");
+            Assert.IsNull(result.MandatoryValue, "Parameter MandatoryValue present");
+            Assert.NotNull(result.SecondMandatory, "Parameter SecondMandatory present");
+
+            Assert.AreEqual(String.Empty, result.OptionalValue, "OptionalValue value");
+            Assert.AreEqual("ValueTwo", result.SecondMandatory, "SecondMandatory value");
+
+            Assert.AreEqual(new[] { "ArgOne", "ArgTwo" }, result.RemainingArgs, "Remaining args");
+        }
+
+        #endregion
+
+        #region contained type
+
+        public class SampleClass
+        {
+            public bool Foo
+            {
+                get;
+                set;
+            }
+
+            public bool Bar
+            {
+                get;
+                set;
+            }
+
+            public string OptionalValue
+            {
+                get;
+                set;
+            }
+
+            public string MandatoryValue
+            {
+                get;
+                set;
+            }
+
+            public string SecondMandatory
+            {
+                get;
+                set;
+            }
+
+            public IList<string> RemainingArgs
+            {
+                get;
+                set;
+            }
+        }
+
+        #endregion
     }
-
-    [Test]
-    public void TestParseEmptyOptionalValue()
-    {
-      // Arrange
-      var parser = new ParameterParserBuilder<SampleClass>()
-        .AddFlag(x => x.Foo, shortName: "f", longName: "foo")
-        .AddFlag(x => x.Bar, longName: "bar")
-        .AddValue(x => x.OptionalValue, longName: "optional")
-        .AddValue(x => x.MandatoryValue, shortNames: new[] { "m", "A" }, optional: false)
-        .AddValue(x => x.SecondMandatory, longNames: new[] { "second", "mandatory" }, optional: false)
-        .RemainingArguments(x => x.RemainingArgs)
-        .Build();
-
-      var cliParams = "--optional -f --mandatory ValueTwo ArgOne ArgTwo".Split(' ');
-
-      // Act
-      var result = parser.Parse(cliParams);
-
-      // Assert
-      Assert.NotNull(result, "Result nullability");
-      Assert.IsTrue(result.Foo, "Parameter Foo present");
-      Assert.IsFalse(result.Bar, "Parameter Bar present");
-      Assert.NotNull(result.OptionalValue, "Parameter OptionalValue present");
-      Assert.IsNull(result.MandatoryValue, "Parameter MandatoryValue present");
-      Assert.NotNull(result.SecondMandatory, "Parameter SecondMandatory present");
-
-      Assert.AreEqual(String.Empty, result.OptionalValue, "OptionalValue value");
-      Assert.AreEqual("ValueTwo", result.SecondMandatory, "SecondMandatory value");
-
-      Assert.AreEqual(new[] { "ArgOne", "ArgTwo" }, result.RemainingArgs, "Remaining args");
-    }
-
-    #endregion
-
-    #region contained type
-
-    public class SampleClass
-    {
-      public bool Foo
-      {
-        get;
-        set;
-      }
-
-      public bool Bar
-      {
-        get;
-        set;
-      }
-
-      public string OptionalValue
-      {
-        get;
-        set;
-      }
-
-      public string MandatoryValue
-      {
-        get;
-        set;
-      }
-
-      public string SecondMandatory
-      {
-        get;
-        set;
-      }
-
-      public IList<string> RemainingArgs
-      {
-        get;
-        set;
-      }
-    }
-
-    #endregion
-  }
 }
 

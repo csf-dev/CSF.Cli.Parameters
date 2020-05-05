@@ -30,72 +30,72 @@ using System.Linq;
 
 namespace Test.CSF.Cli
 {
-  [TestFixture]
-  public class TestParameterParserBuilder
-  {
-    #region tests
-
-    [Test]
-    public void TestAddFlag()
+    [TestFixture]
+    public class TestParameterParserBuilder
     {
-      // Arrange
-      var sut = new ParameterParserBuilder();
+        #region tests
 
-      // Act
-      sut.AddFlag("Foo", shortName: "f", longName: "foo");
-      var result = sut.Build();
+        [Test]
+        public void TestAddFlag()
+        {
+            // Arrange
+            var sut = new ParameterParserBuilder();
 
-      // Assert
-      Assert.NotNull(result, "Result nullability");
-      Assert.AreEqual(1, result.GetRegisteredParameters().Length, "Count of parameters");
-      var param = result.GetRegisteredParameters().First();
-      Assert.AreEqual("Foo", param.Identifier, "Param identifier");
-      Assert.AreEqual("f", param.ShortNames.First(), "Param short name");
-      Assert.AreEqual("foo", param.LongNames.First(), "Param long name");
-      Assert.AreEqual(ParameterBehaviour.Switch, param.Behaviour, "Param behaviour");
+            // Act
+            sut.AddFlag("Foo", shortName: "f", longName: "foo");
+            var result = sut.Build();
+
+            // Assert
+            Assert.NotNull(result, "Result nullability");
+            Assert.AreEqual(1, result.GetRegisteredParameters().Length, "Count of parameters");
+            var param = result.GetRegisteredParameters().First();
+            Assert.AreEqual("Foo", param.Identifier, "Param identifier");
+            Assert.AreEqual("f", param.ShortNames.First(), "Param short name");
+            Assert.AreEqual("foo", param.LongNames.First(), "Param long name");
+            Assert.AreEqual(ParameterBehaviour.Switch, param.Behaviour, "Param behaviour");
+        }
+
+        [Test]
+        public void TestAddValue()
+        {
+            // Arrange
+            var sut = new ParameterParserBuilder();
+
+            // Act
+            sut.AddValue("Foo", shortName: "f", longName: "foo", optional: false);
+            var result = sut.Build();
+
+            // Assert
+            Assert.NotNull(result, "Result nullability");
+            Assert.AreEqual(1, result.GetRegisteredParameters().Length, "Count of parameters");
+            var param = result.GetRegisteredParameters().First();
+            Assert.AreEqual("Foo", param.Identifier, "Param identifier");
+            Assert.AreEqual("f", param.ShortNames.First(), "Param short name");
+            Assert.AreEqual("foo", param.LongNames.First(), "Param long name");
+            Assert.AreEqual(ParameterBehaviour.ValueRequired, param.Behaviour, "Param behaviour");
+        }
+
+        [Test]
+        public void TestAddOptionalValue()
+        {
+            // Arrange
+            var sut = new ParameterParserBuilder();
+
+            // Act
+            sut.AddValue("Foo", shortName: "f", longName: "foo", optional: true);
+            var result = sut.Build();
+
+            // Assert
+            Assert.NotNull(result, "Result nullability");
+            Assert.AreEqual(1, result.GetRegisteredParameters().Length, "Count of parameters");
+            var param = result.GetRegisteredParameters().First();
+            Assert.AreEqual("Foo", param.Identifier, "Param identifier");
+            Assert.AreEqual("f", param.ShortNames.First(), "Param short name");
+            Assert.AreEqual("foo", param.LongNames.First(), "Param long name");
+            Assert.AreEqual(ParameterBehaviour.ValueOptional, param.Behaviour, "Param behaviour");
+        }
+
+        #endregion
     }
-
-    [Test]
-    public void TestAddValue()
-    {
-      // Arrange
-      var sut = new ParameterParserBuilder();
-
-      // Act
-      sut.AddValue("Foo", shortName: "f", longName: "foo", optional: false);
-      var result = sut.Build();
-
-      // Assert
-      Assert.NotNull(result, "Result nullability");
-      Assert.AreEqual(1, result.GetRegisteredParameters().Length, "Count of parameters");
-      var param = result.GetRegisteredParameters().First();
-      Assert.AreEqual("Foo", param.Identifier, "Param identifier");
-      Assert.AreEqual("f", param.ShortNames.First(), "Param short name");
-      Assert.AreEqual("foo", param.LongNames.First(), "Param long name");
-      Assert.AreEqual(ParameterBehaviour.ValueRequired, param.Behaviour, "Param behaviour");
-    }
-
-    [Test]
-    public void TestAddOptionalValue()
-    {
-      // Arrange
-      var sut = new ParameterParserBuilder();
-
-      // Act
-      sut.AddValue("Foo", shortName: "f", longName: "foo", optional: true);
-      var result = sut.Build();
-
-      // Assert
-      Assert.NotNull(result, "Result nullability");
-      Assert.AreEqual(1, result.GetRegisteredParameters().Length, "Count of parameters");
-      var param = result.GetRegisteredParameters().First();
-      Assert.AreEqual("Foo", param.Identifier, "Param identifier");
-      Assert.AreEqual("f", param.ShortNames.First(), "Param short name");
-      Assert.AreEqual("foo", param.LongNames.First(), "Param long name");
-      Assert.AreEqual(ParameterBehaviour.ValueOptional, param.Behaviour, "Param behaviour");
-    }
-
-    #endregion
-  }
 }
 

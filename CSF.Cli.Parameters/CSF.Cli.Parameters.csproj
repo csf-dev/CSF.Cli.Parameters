@@ -6,7 +6,7 @@
     <Authors>craigfowler</Authors>
     <Title>Command-line parameter reader</Title>
     <Description>A reader for command-line parameters, supporting both long and short options, boolean flags, string values and positional parameters.  Also enables deserializing parsed parameters to a POCO via a mapping-based mechanism.</Description>
-    <ReleaseVersion>1.0.3</ReleaseVersion>
+    <ReleaseVersion>2.0.0</ReleaseVersion>
     <Version>$(ReleaseVersion)</Version>
     <PackageVersion>$(ReleaseVersion)</PackageVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

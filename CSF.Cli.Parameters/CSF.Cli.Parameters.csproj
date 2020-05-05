@@ -30,19 +30,7 @@
   </PropertyGroup>
     
   <ItemGroup>
-    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\ExceptionMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
-      <LogicalName>ExceptionMessages.resx.resources</LogicalName>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\ExceptionMessages.Designer.cs">
-      <DependentUpon>ExceptionMessages.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
+    <EmbeddedResource Remove="Resources\ExceptionMessages.resx" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CSF.Reflector" Version="3.0.0" />

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.CSF.Cli.Parameters", "Test.CSF.Cli.Parameters\Test.CSF.Cli.Parameters.csproj", "{92376DC0-7226-4470-89AA-E6CB1942C8CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Cli.Parameters.Tests", "CSF.Cli.Parameters.Tests\CSF.Cli.Parameters.Tests.csproj", "{92376DC0-7226-4470-89AA-E6CB1942C8CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Cli.Parameters", "CSF.Cli.Parameters\CSF.Cli.Parameters.csproj", "{F4461C25-5400-4165-B55F-0C58ED7C4C77}"
 EndProject

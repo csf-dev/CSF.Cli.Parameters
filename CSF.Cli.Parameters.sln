@@ -5,6 +5,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Cli.Parameters.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Cli.Parameters", "CSF.Cli.Parameters\CSF.Cli.Parameters.csproj", "{F4461C25-5400-4165-B55F-0C58ED7C4C77}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{66280759-5A3F-4624-A14C-BFB5084201EB}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\EnableMultiTargetingWithMono.targets = Tools\EnableMultiTargetingWithMono.targets
+		.appveyor.yml = .appveyor.yml
+		.travis.yml = .travis.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

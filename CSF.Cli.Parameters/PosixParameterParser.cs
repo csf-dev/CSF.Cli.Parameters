@@ -1,4 +1,4 @@
-//
+﻿//
 // PosixParameterParser.cs
 //
 // Author:
@@ -30,7 +30,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace CSF.Cli.Parameters
+namespace CSF.Cli
 {
     /// <summary>
     /// Implementation of an <see cref="IParameterParser"/> that deals with POSIX-style parameters.

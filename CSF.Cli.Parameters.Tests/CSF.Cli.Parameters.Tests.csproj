@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <ReleaseVersion>1.0.3</ReleaseVersion>
-    <RootNamespace>CSF.Cli.Parameters</RootNamespace>
+    <RootNamespace>CSF.Cli</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />

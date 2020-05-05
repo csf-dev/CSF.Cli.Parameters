@@ -26,7 +26,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CSF.Cli.Parameters
+namespace CSF.Cli
 {
     /// <summary>
     /// Interface for an instance of <see cref="IParameterParser"/> which parses parameters into an object type.

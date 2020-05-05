@@ -1,4 +1,4 @@
-//
+﻿//
 // IParameterParser.cs
 //
 // Author:
@@ -27,7 +27,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CSF.Cli.Parameters
+namespace CSF.Cli
 {
     /// <summary>
     /// Base interface for a parameter parser.

@@ -1,4 +1,4 @@
-//
+﻿//
 // ParameterBehaviour.cs
 //
 // Author:
@@ -26,7 +26,7 @@
 
 using System;
 
-namespace CSF.Cli.Parameters
+namespace CSF.Cli
 {
     /// <summary>
     /// Enumerates the possible behaviours for an <see cref="ParameterMapping"/>.

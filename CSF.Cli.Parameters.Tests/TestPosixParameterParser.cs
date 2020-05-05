@@ -25,9 +25,9 @@
 // THE SOFTWARE.
 using System;
 using NUnit.Framework;
-using CSF.Cli.Parameters;
+using CSF.Cli;
 
-namespace Test.CSF.Cli
+namespace CSF.Cli
 {
     [TestFixture]
     public class TestPosixParameterParser

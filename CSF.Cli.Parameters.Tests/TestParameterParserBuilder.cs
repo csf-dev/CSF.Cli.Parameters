@@ -25,10 +25,10 @@
 // THE SOFTWARE.
 using System;
 using NUnit.Framework;
-using CSF.Cli.Parameters;
+using CSF.Cli;
 using System.Linq;
 
-namespace Test.CSF.Cli
+namespace CSF.Cli
 {
     [TestFixture]
     public class TestParameterParserBuilder

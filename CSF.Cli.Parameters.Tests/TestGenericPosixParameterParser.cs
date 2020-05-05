@@ -26,9 +26,9 @@
 using System;
 using NUnit.Framework;
 using System.Collections.Generic;
-using CSF.Cli.Parameters;
+using CSF.Cli;
 
-namespace Test.CSF.Cli
+namespace CSF.Cli
 {
     [TestFixture]
     public class TestGenericPosixParameterParser

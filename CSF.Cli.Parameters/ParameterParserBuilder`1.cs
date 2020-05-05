@@ -30,7 +30,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using CSF.Reflection;
 
-namespace CSF.Cli.Parameters
+namespace CSF.Cli
 {
     /// <summary>
     /// Builder type creates an instance of the generic <see cref="T:IParameterParser{T}"/> and registers mappings

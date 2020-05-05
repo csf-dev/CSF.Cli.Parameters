@@ -15,6 +15,7 @@
     <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\CSF-Software-OSS.snk</AssemblyOriginatorKeyFile>
+    <RootNamespace>CSF.Cli</RootNamespace>
   </PropertyGroup>
     
   <Import Project="..\Tools\EnableMultiTargetingWithMono.targets" />

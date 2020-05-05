@@ -26,18 +26,18 @@
 using System;
 using System.Collections.Generic;
 
-namespace CSF.Cli.Parameters
+namespace CSF.Cli
 {
-  /// <summary>
-  /// Interface for an instance of <see cref="IParameterParser"/> which parses parameters into an object type.
-  /// </summary>
-  public interface IParameterParser<TParsed> : IParameterParser where TParsed : class,new()
-  {
     /// <summary>
-    /// Parses the given command line arguments into an instance of <typeparamref name="TParsed" />.
+    /// Interface for an instance of <see cref="IParameterParser"/> which parses parameters into an object type.
     /// </summary>
-    /// <param name="commandlineArguments">The command line arguments.</param>
-    new TParsed Parse(IList<string> commandlineArguments);
-  }
+    public interface IParameterParser<TParsed> : IParameterParser where TParsed : class, new()
+    {
+        /// <summary>
+        /// Parses the given command line arguments into an instance of <typeparamref name="TParsed" />.
+        /// </summary>
+        /// <param name="commandlineArguments">The command line arguments.</param>
+        new TParsed Parse(IList<string> commandlineArguments);
+    }
 }
 

@@ -1,4 +1,4 @@
-//
+﻿//
 // ParsedParameters.cs
 //
 // Author:
@@ -30,93 +30,93 @@ using System.Linq.Expressions;
 using CSF.Reflection;
 using System.Linq;
 
-namespace CSF.Cli.Parameters
+namespace CSF.Cli
 {
-  /// <summary>
-  /// Represents the results of a <see cref="IParameterParser"/>'s parsing activity.  Contains the parameters that were
-  /// parsed and their values.
-  /// </summary>
-  public class ParsedParameters
-  {
-    #region fields
-
-    private HashSet<object> _flagParameters;
-    private IDictionary<object,string> _valueParameters;
-    private IList<string> _remainingArguments;
-
-    #endregion
-
-    #region methods
-
     /// <summary>
-    /// Determines whether this instance has a parameter with the specified identifier.
+    /// Represents the results of a <see cref="IParameterParser"/>'s parsing activity.  Contains the parameters that were
+    /// parsed and their values.
     /// </summary>
-    /// <returns><c>true</c> if this instance has a parameter with the specified identifier; otherwise, <c>false</c>.</returns>
-    /// <param name="identifier">Identifier.</param>
-    public bool HasParameter(object identifier)
+    public class ParsedParameters
     {
-      return (_flagParameters.Contains(identifier)
-              || _valueParameters.ContainsKey(identifier));
+        #region fields
+
+        private HashSet<object> _flagParameters;
+        private IDictionary<object, string> _valueParameters;
+        private IList<string> _remainingArguments;
+
+        #endregion
+
+        #region methods
+
+        /// <summary>
+        /// Determines whether this instance has a parameter with the specified identifier.
+        /// </summary>
+        /// <returns><c>true</c> if this instance has a parameter with the specified identifier; otherwise, <c>false</c>.</returns>
+        /// <param name="identifier">Identifier.</param>
+        public bool HasParameter(object identifier)
+        {
+            return (_flagParameters.Contains(identifier)
+                    || _valueParameters.ContainsKey(identifier));
+        }
+
+        /// <summary>
+        /// Gets the value for a 'value type' parameter.
+        /// </summary>
+        /// <returns>The parameter value.</returns>
+        /// <param name="identifier">Identifier.</param>
+        public string GetParameterValue(object identifier)
+        {
+            if (!_valueParameters.ContainsKey(identifier))
+            {
+                throw new ArgumentException("The parsed parameters must contain a parameter of the given identifier",
+                                            "identifier");
+            }
+
+            return _valueParameters[identifier];
+        }
+
+        /// <summary>
+        /// Gets a collection of the remaining <c>System.String</c> positional arguments, which are not parameters.
+        /// </summary>
+        /// <returns>The remaining arguments.</returns>
+        public string[] GetRemainingArguments()
+        {
+            return _remainingArguments.ToArray();
+        }
+
+        #endregion
+
+        #region constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ParsedParameters"/> class.
+        /// </summary>
+        /// <param name="flagParameters">Flag parameters.</param>
+        /// <param name="valueParameters">Value parameters.</param>
+        /// <param name="remainingArguments">Remaining arguments.</param>
+        public ParsedParameters(IEnumerable<object> flagParameters,
+                                IDictionary<object, string> valueParameters,
+                                IList<string> remainingArguments)
+        {
+            if (flagParameters == null)
+            {
+                throw new ArgumentNullException("flagParameters");
+            }
+            if (valueParameters == null)
+            {
+                throw new ArgumentNullException("valueParameters");
+            }
+            if (remainingArguments == null)
+            {
+                throw new ArgumentNullException("remainingArguments");
+            }
+
+            _flagParameters = new HashSet<object>(flagParameters);
+            _valueParameters = valueParameters;
+            _remainingArguments = remainingArguments;
+        }
+
+        #endregion
     }
-
-    /// <summary>
-    /// Gets the value for a 'value type' parameter.
-    /// </summary>
-    /// <returns>The parameter value.</returns>
-    /// <param name="identifier">Identifier.</param>
-    public string GetParameterValue(object identifier)
-    {
-      if(!_valueParameters.ContainsKey(identifier))
-      {
-        throw new ArgumentException("The parsed parameters must contain a parameter of the given identifier",
-                                    "identifier");
-      }
-
-      return _valueParameters[identifier];
-    }
-
-    /// <summary>
-    /// Gets a collection of the remaining <c>System.String</c> positional arguments, which are not parameters.
-    /// </summary>
-    /// <returns>The remaining arguments.</returns>
-    public string[] GetRemainingArguments()
-    {
-      return _remainingArguments.ToArray();
-    }
-
-    #endregion
-    
-    #region constructors
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ParsedParameters"/> class.
-    /// </summary>
-    /// <param name="flagParameters">Flag parameters.</param>
-    /// <param name="valueParameters">Value parameters.</param>
-    /// <param name="remainingArguments">Remaining arguments.</param>
-    public ParsedParameters(IEnumerable<object> flagParameters,
-                            IDictionary<object,string> valueParameters,
-                            IList<string> remainingArguments)
-    {
-      if(flagParameters == null)
-      {
-        throw new ArgumentNullException("flagParameters");
-      }
-      if(valueParameters == null)
-      {
-        throw new ArgumentNullException("valueParameters");
-      }
-      if(remainingArguments == null)
-      {
-        throw new ArgumentNullException("remainingArguments");
-      }
-
-      _flagParameters = new HashSet<object>(flagParameters);
-      _valueParameters = valueParameters;
-      _remainingArguments = remainingArguments;
-    }
-
-    #endregion
-  }
 }
 

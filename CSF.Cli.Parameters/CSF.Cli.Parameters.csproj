@@ -15,6 +15,7 @@
     <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\CSF-Software-OSS.snk</AssemblyOriginatorKeyFile>
+    <RootNamespace>CSF.Cli</RootNamespace>
   </PropertyGroup>
     
   <Import Project="..\Tools\EnableMultiTargetingWithMono.targets" />
@@ -29,22 +30,9 @@
   </PropertyGroup>
     
   <ItemGroup>
-    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\ExceptionMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
-      <LogicalName>ExceptionMessages.resx.resources</LogicalName>
-    </EmbeddedResource>
+    <EmbeddedResource Remove="Resources\ExceptionMessages.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\ExceptionMessages.Designer.cs">
-      <DependentUpon>ExceptionMessages.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="CSF.Reflection" Version="1.0.3" />
-    <PackageReference Include="CSF.Utils" Version="6.1.1" />
+    <PackageReference Include="CSF.Reflector" Version="3.0.0" />
   </ItemGroup>
 </Project>

@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Cli.Parameters", "CSF.Cli.Parameters\CSF.Cli.Parameters.csproj", "{295C293C-60FB-43F3-B728-C2BA5B7516BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Cli.Parameters.Tests", "CSF.Cli.Parameters.Tests\CSF.Cli.Parameters.Tests.csproj", "{92376DC0-7226-4470-89AA-E6CB1942C8CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.CSF.Cli.Parameters", "Test.CSF.Cli.Parameters\Test.CSF.Cli.Parameters.csproj", "{92376DC0-7226-4470-89AA-E6CB1942C8CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Cli.Parameters", "CSF.Cli.Parameters\CSF.Cli.Parameters.csproj", "{F4461C25-5400-4165-B55F-0C58ED7C4C77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{66280759-5A3F-4624-A14C-BFB5084201EB}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\EnableMultiTargetingWithMono.targets = Tools\EnableMultiTargetingWithMono.targets
+		.appveyor.yml = .appveyor.yml
+		.travis.yml = .travis.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,20 +18,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{295C293C-60FB-43F3-B728-C2BA5B7516BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{295C293C-60FB-43F3-B728-C2BA5B7516BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{295C293C-60FB-43F3-B728-C2BA5B7516BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{295C293C-60FB-43F3-B728-C2BA5B7516BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92376DC0-7226-4470-89AA-E6CB1942C8CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92376DC0-7226-4470-89AA-E6CB1942C8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92376DC0-7226-4470-89AA-E6CB1942C8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92376DC0-7226-4470-89AA-E6CB1942C8CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4461C25-5400-4165-B55F-0C58ED7C4C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4461C25-5400-4165-B55F-0C58ED7C4C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4461C25-5400-4165-B55F-0C58ED7C4C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4461C25-5400-4165-B55F-0C58ED7C4C77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.TextStylePolicy = $1
-		$1.TabWidth = 2
-		$1.IndentWidth = 2
 		$1.NoTabsAfterNonTabs = True
 		$1.scope = text/plain
 		$1.TabsToSpaces = True
@@ -157,6 +162,6 @@ Global
 		$25.NamingStyle = PascalCase
 		$25.IncludeInstanceMembers = True
 		$25.IncludeStaticEntities = True
-		version = 1.0.3
+		version = 2.0.0
 	EndGlobalSection
 EndGlobal

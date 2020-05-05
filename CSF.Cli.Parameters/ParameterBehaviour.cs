@@ -1,4 +1,4 @@
-//
+﻿//
 // ParameterBehaviour.cs
 //
 // Author:
@@ -26,28 +26,28 @@
 
 using System;
 
-namespace CSF.Cli.Parameters
+namespace CSF.Cli
 {
-  /// <summary>
-  /// Enumerates the possible behaviours for an <see cref="ParameterMapping"/>.
-  /// </summary>
-  public enum ParameterBehaviour
-  {
     /// <summary>
-    /// Indicates that the parameter is a switch only and may not have an associated value.  It is either present or not
-    /// present.
+    /// Enumerates the possible behaviours for an <see cref="ParameterMapping"/>.
     /// </summary>
-    Switch,
-    
-    /// <summary>
-    /// Indicates that the parameter may have an optional value associated with it but that the value is not mandatory.
-    /// </summary>
-    ValueOptional,
-    
-    /// <summary>
-    /// Indicates that the parameter has an associated value and that this value is mandatory.
-    /// </summary>
-    ValueRequired
-  }
+    public enum ParameterBehaviour
+    {
+        /// <summary>
+        /// Indicates that the parameter is a switch only and may not have an associated value.  It is either present or not
+        /// present.
+        /// </summary>
+        Switch,
+
+        /// <summary>
+        /// Indicates that the parameter may have an optional value associated with it but that the value is not mandatory.
+        /// </summary>
+        ValueOptional,
+
+        /// <summary>
+        /// Indicates that the parameter has an associated value and that this value is mandatory.
+        /// </summary>
+        ValueRequired
+    }
 }
 

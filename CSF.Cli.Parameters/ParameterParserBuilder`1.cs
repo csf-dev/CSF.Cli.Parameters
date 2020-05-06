@@ -109,7 +109,11 @@ namespace CSF.Cli
             this.CheckNotBuilt();
 
             var property = Reflect.Property(propertyExpression);
+#if NETSTANDARD1_0
+            if (property.DeclaringType != typeof(TParsed))
+#else
             if (property.ReflectedType != typeof(TParsed))
+#endif
             {
                 string message = String.Format("Property expression must indicate a first-class property of type `{0}'.",
                                                typeof(TParsed).FullName);
@@ -197,7 +201,11 @@ namespace CSF.Cli
             this.CheckNotBuilt();
 
             var property = Reflect.Property(propertyExpression);
+#if NETSTANDARD1_0
+            if (property.DeclaringType != typeof(TParsed))
+#else
             if (property.ReflectedType != typeof(TParsed))
+#endif
             {
                 string message = String.Format("Property expression must indicate a first-class property of type `{0}'.",
                                                typeof(TParsed).FullName);
@@ -236,7 +244,11 @@ namespace CSF.Cli
             this.CheckNotBuilt();
 
             var property = Reflect.Property(propertyExpression);
+#if NETSTANDARD1_0
+            if (property.DeclaringType != typeof(TParsed))
+#else
             if (property.ReflectedType != typeof(TParsed))
+#endif
             {
                 string message = String.Format("Property expression must indicate a first-class property of type `{0}'.",
                                                typeof(TParsed).FullName);
@@ -272,9 +284,9 @@ namespace CSF.Cli
             }
         }
 
-        #endregion
+#endregion
 
-        #region constructor
+#region constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:CSF.Cli.ParameterParserBuilder{TParsed}"/> class.
@@ -284,7 +296,7 @@ namespace CSF.Cli
             _mappings = new Dictionary<PropertyInfo, ParameterMapping>();
         }
 
-        #endregion
+#endregion
     }
 }
 

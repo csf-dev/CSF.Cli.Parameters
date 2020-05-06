@@ -44,8 +44,16 @@ namespace CSF.Cli
           SHORT_PARAMETER_PATTERN = @"^-([A-Za-z0-9])$";
 
         private static readonly Regex
-          LongParameter = new Regex(LONG_PARAMETER_PATTERN, RegexOptions.Compiled),
-          ShortParameter = new Regex(SHORT_PARAMETER_PATTERN, RegexOptions.Compiled);
+          LongParameter = new Regex(LONG_PARAMETER_PATTERN
+#if !NETSTANDARD1_0
+                                    ,RegexOptions.Compiled
+#endif
+                                    ),
+          ShortParameter = new Regex(SHORT_PARAMETER_PATTERN
+#if !NETSTANDARD1_0
+                                     ,RegexOptions.Compiled
+#endif
+                                     );
 
         #endregion
 

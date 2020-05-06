@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net45;netcoreapp2.0;netstandard1.0</TargetFrameworks>
     <PackageId>CSF.Cli.Parameters</PackageId>
     <Authors>craigfowler</Authors>
     <Title>Command-line parameter reader</Title>

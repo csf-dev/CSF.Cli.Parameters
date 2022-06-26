@@ -1,4 +1,9 @@
-# Command-line parameter reader
+# Command-line parameter reader (retired)
+This library [is now retired and will not receive further updates](https://github.com/csf-dev/CSF.Cli.Parameters/issues/12).
+Please consider [System.CommandLine](https://docs.microsoft.com/en-us/dotnet/standard/commandline/) instead.
+
+---
+
 This library introduces a reader/parser for command-line application parameters,
 with a capability to deserialize the read parameters into a plain old CSharp
 object (POCO).
